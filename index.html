@@ -5,9 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping App</title>
-    <link rel="icon" href="./assets/icon-192.png">
-<link rel="stylesheet" href="./index.css">
+    <link rel="icon" href="./assets/icon-192.png">   
+    <link rel="stylesheet" href="./index.css">
+    <link rel="manifest" href="./manifest.json">
 <script src="./dexie.min.js"></script>
+
 
 <script>
   
@@ -24,7 +26,8 @@
 
     <nav>
 
-        <p>Shopping list</p>
+      
+        <p>My Shopping list</p>
     </nav>
 
     
@@ -42,7 +45,7 @@
             <label>
 
                 Quantity:
-                <input type="text" id="quantityInput" value=1>
+                <input type="text" id="quantityInput" value="1">
 
             </label>
 
@@ -53,10 +56,11 @@
 
             </label>
 
-            <button type="submit" id="addItemButton">
-                Add item
+
+ <button type="submit" id="addItemButton">
+                Add Item
             </button>
-        </form>
+                </form>
     </div>
 
 
@@ -64,7 +68,12 @@
     <div id="itemsDiv"></div>
 
     <div id="totalPriceDiv"></div>
-
+    <div id="buttons">
+            
+        <button class="clearItemButton" onclick="clearAllItems()">
+            Clear Items
+        </button>  
+       </div>       
 
     
     <script src="./index.js"></script>
