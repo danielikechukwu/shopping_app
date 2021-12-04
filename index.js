@@ -4,25 +4,6 @@ db.version(1).stores(  { items: '++id,name,price,isPurchased'})
 const itemForm = document.getElementById('itemForm')
 const itemsDiv = document.getElementById('itemsDiv')
 const totalPriceDiv = document.getElementById('totalPriceDiv')
-const addItemView = document.getElementById('addItemView')
-const updateItemView = document.getElementById('updateItemView')
-
-
-const defaultView = (view) => {
-
-    if(view == true){
-
-        addItemView.style.display="block";
-        updateItemView.style.display="none";
-
-    }
-
-    else if(view == false ){
-
-        addItemView.style.display="none";
-        updateItemView.style.display="block";
-    }
-}
 
 const populateItemsDiv = async () => {
 
@@ -82,17 +63,22 @@ itemForm.onsubmit = async (event ) => {
 }
 
 
+
+
+
 const toggleItemStatus = async (event, id) => {
     await db.items.update(id, {isPurchased: !!event.target.checked})
 
     await populateItemsDiv()
 }
 
+//remove a particular item
 const removeItem = async (id) => {
 
     await db.items.delete(id)
     await populateItemsDiv()
-    defaultView(true)
+   
+    
 }
 
 //clear all data
@@ -100,5 +86,5 @@ const clearAllItems = () => {
 
     db.items.clear()
     populateItemsDiv()
-    defaultView(true)
+   
 }
